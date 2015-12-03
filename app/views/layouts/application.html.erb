@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BlogRubo</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+ <script type="text/javascript">
+//   setTimeout(function() {
+//         $('.alert-danger').fadeOut('fast');
+//         }, 4000);
+// </script>
+
+ <script type="text/javascript">
+//   setTimeout(function() {
+//         $('.alert-info').fadeOut('fast');
+//         }, 4000);
+// </script>
+
+ <script type="text/javascript">
+//   setTimeout(function() {
+//         $('.alert-success').fadeOut('fast');
+//         }, 4000);
+// </script>
+<div class="container-narrow container navbar-in">
+  <div class="masthead">
+    <%= render 'layouts/user_header' %>
+    <h3 class="muted"><%= link_to "Blog Rubo", root_path %></h3>
+  </div>
+  <hr />
+  <% if notice %>
+    <p class="alert alert-success"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+    <p class="alert alert-danger"><%= alert %></p>
+  <% end %>
+  <div class="container" style="center">
+  <%= yield %>
+  </div>
+</div>
+</body>
+</html>

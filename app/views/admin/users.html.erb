@@ -1,0 +1,53 @@
+<h1>Admins</h1>
+
+<table class="table table-stripped">
+  <thead>
+    <tr>
+      <th>User Email</th>
+      <th>Satus</th>
+      <th>Acces</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @admin_users.each do |admin| %>
+      <tr>
+        <td><%= admin.email %></td>
+        <td>
+        	<% if admin.confirmed_at.nil? %>
+        		Not Confirmed
+        	<% else %>
+        		Confirmed	
+        	<% end %>
+        </td>
+        <td><%= link_to "Remove Admin", '/remove_admin/'+admin.id.to_s  %></td>
+      </tr>
+	 <% end %>
+   </tbody>
+</table>
+
+<h1>Users</h1>
+
+<table class="table table-stripped">
+  <thead>
+    <tr>
+      <th>User Email</th>
+      <th>Satus</th>
+      <th>Access</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+        <td>
+        	<% if user.confirmed_at.nil? %>
+        		Not Confirmed
+        	<% else %>
+        		Confirmed	
+        	<% end %>
+        </td>
+        <td><%= link_to "Make Admin", '/make_admin/'+user.id.to_s  %></td>
+      </tr>
+	 <% end %>
+   </tbody>
+</table>
