@@ -1,6 +1,5 @@
 class AdminController < ApplicationController
 	before_action :authenticate_admin!
-
 	def users
 		@users = User.where(admin: :false)
 		@admin_users = User.where(admin: true)

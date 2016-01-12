@@ -9,7 +9,7 @@
 </p>
 
 <% if user_signed_in? %>
-    <% if current_user.admin? ||  @post.user_id == current_user.id %>
+    <% if current_user.has_role? :admin ||  @post.user_id == current_user.id %>
         <%= link_to 'Edit', edit_post_path(@post) %> |
 	<% end %> 
 <% end %>

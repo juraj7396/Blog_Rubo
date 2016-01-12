@@ -7,9 +7,15 @@ class ApplicationController < ActionController::Base
   	authenticate_user!
 
   	unless current_user.admin?
-  		redirect_to root_path, alert: "You are not allowed to perform that operation."
+      current_uri = request.env['PATH_INFO']
+      if  rails_admin_path == current_uri
+        raise current_uri.inspect
+  		  redirect_to dashboard_path, alert: "You are not allowed to perform that operation."
+      end
   	end
+
   end
+  
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def configure_permitted_parameters
